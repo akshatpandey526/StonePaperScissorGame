@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stone-Paper-Scissor-game</title>
+    <link rel="stylesheet" href="w3css.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .choices-container {
+            display: flex;
+            gap: 28px;
+            min-height: 40vh;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px 0;
+        }
+        .choice {
+            width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            user-select: none;
+        }
+        .choice:hover {
+            transform: scale(1.1);
+        }
+        .score-container {
+            display: flex;
+            gap: 50px;
+            min-height: 20vh;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .score-box {
+            text-align: center;
+        }
+        .score-box p {
+            margin: 10px 0;
+        }
+        .result-btn {
+            margin-bottom: 20px;
+            padding: 10px 30px;
+            border: none;
+            cursor: pointer;
+        }
+        .result-btn:hover {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+        .header-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .reset-btn-custom {
+            position: absolute;
+            right: 20px;
+            background-color: #ff4757;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .reset-btn-custom:hover {
+            background-color: #ff6b81;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.4);
+        }
+        .reset-btn-custom:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        @media (max-width: 600px) {
+            .choices-container {
+                gap: 15px;
+                min-height: 30vh;
+            }
+            .choice {
+                width: 90px;
+                height: 90px;
+                font-size: 40px;
+            }
+            .score-container {
+                gap: 30px;
+                min-height: 15vh;
+            }
+            .w3-xxlarge {
+                font-size: 24px !important;
+            }
+            .w3-xlarge {
+                font-size: 18px !important;
+            }
+            .result-btn {
+                font-size: 18px !important;
+            }
+            .header-container {
+                flex-direction: column;
+                gap: 10px;
+                padding-bottom: 15px;
+            }
+            .reset-btn-custom {
+                position: relative;
+                right: auto;
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w3-black w3-container header-container">
+    <h1 class="w3-xlarge w3-text-center w3-padding-16" style="margin:0;">Stone-Paper-Scissors</h1>
+    <button class="reset-btn-custom reset">Reset Game</button></div>
+    <main>
+        <div class="w3-container choices-container">
+            <div class="choice w3-card w3-circle w3-red" id="Stone">
+                🗿
+            </div>
+            <div class="choice w3-card w3-circle w3-green" id="Paper">
+                📰
+            </div>
+            <div class="choice w3-card w3-circle w3-blue" id="Scissors">
+                ✂️
+            </div>
+        </div>
+        <div class="w3-container w3-center w3-xxlarge">
+            <div id="compchoose" class="w3-large"></div>
+            <div id="yourchoose" class="w3-large"></div>
+            <div class="score-container">
+                <div class="score-box">
+                    <p class="yoursc">0</p>
+                    <p class="w3-xlarge">You</p>
+                </div>
+                <div class="score-box">
+                    <p class="computersc">0</p>
+                    <p class="w3-xlarge">Computer</p>
+                </div>
+            </div>
+            <div class="w3-button w3-black w3-round-xlarge result-btn">Start Game</div>
+            
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
